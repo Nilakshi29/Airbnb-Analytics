@@ -1,71 +1,53 @@
-# 🏙️ NYC Airbnb Classification Project
+# 📊 Loan Classification - Machine Learning Models
 
-This project utilizes the **New York City Airbnb Open Data** to build and compare machine learning models for classifying whether an Airbnb listing is located in **Manhattan** or not.
-
----
+This project explores and implements multiple machine learning models to classify whether a loan is **paid off** or **in collection** using historical loan data.
 
 ## 📁 Dataset
 
-- **Source:** Kaggle (NYC Airbnb Open Data)
-- **Features Used:**
-  - `latitude`
-  - `longitude`
-  - `minimum_nights`
-  - `number_of_reviews`
-  - `reviews_per_month`
-  - `availability_365`
-- **Target Variable:**
-  - `is_manhattan` → 1 if the listing is in Manhattan, 0 otherwise
+The dataset used in this project is `loan_train.csv`, which contains details of 346 customers, including:
 
----
+- **Loan Status**: Target variable (`PAIDOFF` or `COLLECTION`)
+- **Principal**: Loan amount
+- **Terms**: Weekly, Biweekly, or Monthly
+- **Effective Date**: Loan start date
+- **Due Date**: Loan due date
+- **Age**: Applicant’s age
+- **Education**: Education level of applicant
+- **Gender**: Gender of applicant
 
-## 🔧 Project Workflow
+## 🔍 Exploratory Data Analysis (EDA)
 
-### 1. Data Preprocessing
-- Dropped rows with missing values
-- Created a binary target column (`is_manhattan`)
-- Applied feature scaling using `StandardScaler`
+Performed the following EDA steps:
+- Shape of the dataset (rows & columns)
+- Missing values check
+- Outlier detection
+- Distribution plots (e.g., Principal, Age)
+- KDE curves for distribution insights
+- Count plots for categorical features
+- Feature engineering (e.g., extracting day of week from dates)
 
-### 2. Feature Selection
-- Used **Recursive Feature Elimination (RFE)** with Logistic Regression to select top 3 features
+## 🧠 Machine Learning Models
 
-### 3. Model Training & Evaluation
 Trained and evaluated the following classification models:
-- ✅ Logistic Regression  
-- ✅ K-Nearest Neighbors (KNN)  
-- ✅ Decision Tree  
-- ✅ Support Vector Machine (SVM)  
-- ✅ Random Forest
 
-### 4. Evaluation Metrics
-- Accuracy
-- Confusion Matrix (using a custom function)
-- Accuracy Comparison Plots:
-  - Vertical Bar Chart
-  - Horizontal Bar Chart
-  - Dot Plot
+| Model                   | Accuracy |
+|------------------------|----------|
+| Logistic Regression     | 1.0000   |
+| Naive Bayes             | 0.9857   |
+| Decision Tree           | 1.0000   |
+| Support Vector Machine  | 1.0000   |
+| K-Nearest Neighbors     | 0.9429   |
 
----
-
-## 📊 Visualizations
-
-- 📌 Confusion Matrices for each model
-- 📌 Comparative Accuracy Charts with three decimal precision
-
----
+### 📌 Evaluation Metrics:
+- Confusion Matrix
+- Accuracy Score
+- Classification Report (Precision, Recall, F1-score)
 
 ## 🛠️ Tech Stack
 
-- Python
+- Python 🐍
 - Pandas & NumPy
-- Scikit-learn
-- Matplotlib & Seaborn
+- Seaborn & Matplotlib (for visualization)
+- Scikit-learn (model training and evaluation)
+- Machine Learning Models
 
----
-
-## ▶️ Getting Started
-
-1. **Clone this repository**  
-   ```bash
-   git clone https://github.com/yourusername/nyc-airbnb-classification.git
-   cd nyc-airbnb-classification
